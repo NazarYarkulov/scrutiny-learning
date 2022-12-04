@@ -1,0 +1,51 @@
+﻿@page "/students"
+
+@using MediatR
+@using Scrunity.Learnig.Entities
+@using Scrunity.Learning.Services.Queries
+@inject IMediator Mediator
+
+<h3>Students</h3>
+@if (students == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>FullName</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>BirthDate</th>
+                <th>AddCourse</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in students)
+            {
+                <tr>
+                    <td>@student.FullName</td>
+                    <td>@student.Email</td>
+                    <td>@student.Phone</td>
+                    <td>@student.BirthDate.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @*<button class="btn btn-primary" @onclick="CreateNewStudent">Course Add</button>*@
+}
+
+
+@code {
+    private ICollection<Student> students;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var studentQueryFilter = new StudentQueryFilter();
+        
+        var getStudentQuery = new GetStudentsQuery(studentQueryFilter);
+        students = await Mediator.Send(getStudentQuery);
+    }
+}
