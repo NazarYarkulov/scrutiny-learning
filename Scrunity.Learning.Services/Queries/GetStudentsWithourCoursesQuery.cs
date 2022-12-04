@@ -10,7 +10,7 @@ namespace Scrunity.Learning.Services.Queries
 
     }
 
-    internal class GetStudentsWithourCoursesQueryHandler : IRequestHandler<GetStudentsWithourCoursesQuery, ICollection<Student>>
+    public class GetStudentsWithourCoursesQueryHandler : IRequestHandler<GetStudentsWithourCoursesQuery, ICollection<Student>>
     {
         private readonly ILearningDbContext _learningDbContext;
         public GetStudentsWithourCoursesQueryHandler(ILearningDbContext learningDbContext)

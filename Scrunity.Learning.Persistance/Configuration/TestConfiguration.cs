@@ -4,7 +4,7 @@ using Scrunity.Learnig.Entities;
 
 namespace Scrunity.Learning.Persistance.Configuration
 {
-    internal class TestConfiguration : IEntityTypeConfiguration<Test>
+    public class TestConfiguration : IEntityTypeConfiguration<Test>
     {
         public void Configure(EntityTypeBuilder<Test> builder)
         {

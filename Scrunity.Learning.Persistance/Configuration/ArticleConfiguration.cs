@@ -4,7 +4,7 @@ using Scrunity.Learnig.Entities;
 
 namespace Scrunity.Learning.Persistance.Configuration
 {
-    internal class ArticleConfiguration : IEntityTypeConfiguration<Article>
+    public class ArticleConfiguration : IEntityTypeConfiguration<Article>
     {
         public void Configure(EntityTypeBuilder<Article> builder)
         {

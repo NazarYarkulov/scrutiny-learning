@@ -14,7 +14,7 @@ namespace Scrunity.Learning.Services.Queries
         }
     }
 
-    internal class GetStudentsQueryHandler : IRequestHandler<GetStudentsQuery, ICollection<Student>>
+    public class GetStudentsQueryHandler : IRequestHandler<GetStudentsQuery, ICollection<Student>>
     {
         private readonly ILearningDbContext _learningDbContext;
         public GetStudentsQueryHandler(ILearningDbContext learningDbContext)
@@ -26,8 +26,9 @@ namespace Scrunity.Learning.Services.Queries
         {
             var query = _learningDbContext
                 .Students
-                .AsQueryable()
-                .Where(x => x.FullName.Contains(request.Filter.FullName));
+                .AsQueryable();
+            if (!string.IsNullOrEmpty(request.Filter.FullName))
+                query = query.Where(x => x.FullName.Contains(request.Filter.FullName));
 
             if (request.Filter.SortByAscending) query = query.OrderBy(x => x.FullName);
             else query = query.OrderByDescending(x => x.FullName);

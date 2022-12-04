@@ -4,7 +4,7 @@ using Scrunity.Learning.Persistance.Ports;
 
 namespace Scrunity.Learning.Persistance
 {
-    internal class LearningDbContext : DbContext, ILearningDbContext
+    public class LearningDbContext : DbContext, ILearningDbContext
     {
         public LearningDbContext(DbContextOptions<LearningDbContext> options)
         : base(options)

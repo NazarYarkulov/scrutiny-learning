@@ -6,7 +6,6 @@ using Scrunity.Learning.UI;
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
-
 var connectionString = "Host=localhost;Port=5432;Database=scrunity-db;Username=postgres;Password=1111";
 builder.Services.AddPersistence(connectionString);
 builder.Services.AddApplication();

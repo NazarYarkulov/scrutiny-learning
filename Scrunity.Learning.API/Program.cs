@@ -1,4 +1,7 @@
+using MediatR;
+using Scrunity.Learnig.Entities;
 using Scrunity.Learning.Persistance;
+using Scrunity.Learning.Services.Commands;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,5 +30,11 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapPost("/students", async (Student student, IMediator mediator) =>
+{
+    var studentCommand = new AddStudentCommand(student);
+    await mediator.Send(studentCommand);
+});
 
 app.Run();

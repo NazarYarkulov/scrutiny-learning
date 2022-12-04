@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scrunity.Learning.UI", "Scr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scrunity.Learning.API", "Scrunity.Learning.API\Scrunity.Learning.API.csproj", "{6EF5956D-5BAF-4B4B-9CBA-6E0F3476F4E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestServer", "TestServer\TestServer.csproj", "{C369463E-F3BA-46EF-AF45-529A017EE49B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{6EF5956D-5BAF-4B4B-9CBA-6E0F3476F4E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EF5956D-5BAF-4B4B-9CBA-6E0F3476F4E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EF5956D-5BAF-4B4B-9CBA-6E0F3476F4E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C369463E-F3BA-46EF-AF45-529A017EE49B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C369463E-F3BA-46EF-AF45-529A017EE49B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C369463E-F3BA-46EF-AF45-529A017EE49B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C369463E-F3BA-46EF-AF45-529A017EE49B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +70,7 @@ Global
 		{FCF4B19C-4710-4944-8CDF-0CC6991BD13D} = {909EF05B-8D96-4DCA-9FC3-D15AA1D4A3B9}
 		{79C3B694-3AEE-4636-92DE-D390A2575825} = {070140EE-9AED-4472-845B-A7A388119181}
 		{6EF5956D-5BAF-4B4B-9CBA-6E0F3476F4E2} = {070140EE-9AED-4472-845B-A7A388119181}
+		{C369463E-F3BA-46EF-AF45-529A017EE49B} = {070140EE-9AED-4472-845B-A7A388119181}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {416E92F2-A81C-4B91-80CF-34E144A8F93E}

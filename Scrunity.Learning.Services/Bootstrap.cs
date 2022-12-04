@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
+using Scrunity.Learning.Services;
+using Scrunity.Learning.Services.Queries;
 
 namespace Scrunity.Learning.Persistance
 {
@@ -8,7 +9,8 @@ namespace Scrunity.Learning.Persistance
     {
         public static void AddApplication(this IServiceCollection services)
         {
-            services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddMediatR(typeof(GetStudentsQuery).Assembly);
+            services.AddScoped<IStudentService, StudentService>();
         }
     }
 }

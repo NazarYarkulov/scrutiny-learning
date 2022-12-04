@@ -1,14 +1,9 @@
 ﻿@page "/students"
 
-@using Dapper
-@using Npgsql
+@using MediatR
 @using Scrunity.Learnig.Entities
-@using Scrunity.Learning.Persistance
-@using Scrunity.Learning.Persistance.Ports
-@using Scrunity.Learning.Services
-@using System.Data
-@using System.Data.SqlClient
-@inject ILearningDbContext dbContext
+@using Scrunity.Learning.Services.Queries
+@inject IMediator Mediator
 <h3>Students</h3>
 @if (students == null)
 {
@@ -34,33 +29,30 @@ else
                     <td>@student.Email</td>
                     <td>@student.Phone</td>
                     <td>@student.BirthDate.ToShortDateString()</td>
+                    <td>
+                        <button class="btn btn-primary">
+                            <i class="oi oi-pencil"></i>
+                        </button>
+                    </td>
                 </tr>
             }
         </tbody>
     </table>
-    @*<button class="btn btn-primary" @onclick="CreateNewStudent">Course Add</button>*@
+    <button class="btn btn-primary">Add Student</button>
 }
 
 
-@code {
+
+@code
+{
     private ICollection<Student> students;
 
     protected override async Task OnInitializedAsync()
     {
-        try
-        {
-            var connectionString = "Host=localhost;Port=5432;Database=scrunity-db;Username=postgres;Password=1111";
+        var studentQueryFilter = new StudentQueryFilter();
 
-            using (IDbConnection db = new NpgsqlConnection(connectionString))
-            {
-                db.Open();
-                var result = await db.QueryAsync<Student>("SELECT * FROM dbo.Students");
-                students = result.ToList();
-            }
-        }
-        catch (Exception ex)
-        {
-            throw;
-        }
+        var getStudentQuery = new GetStudentsQuery(studentQueryFilter);
+        students = await Mediator.Send(getStudentQuery);
     }
 }
+
